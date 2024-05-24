@@ -1,7 +1,7 @@
 import Menu from '../../components/menu';
 import Footer from '../../components/footer';
 import Hero from '../../components/samplehero';
-
+import '../../components/style.css'
 import React, { useEffect, useState } from 'react';
 import LoadingSpinner from '../../components/loading';
 import { useNavigate } from 'react-router-dom';
@@ -49,6 +49,11 @@ function App() {
 
     fetchclaims();
   }, []);
+  // 
+
+  const handleViewDownload = (id) => {
+    navigate(`../download/${id}`);
+  };
 
   const handleView = async (userId) => {
     // navigate(`../one/${id}`);
@@ -106,7 +111,7 @@ function App() {
               claims.map((claim) => (
           
 
-                <div class="col-md-6" onClick={() => handleView(claim.id)} key={claim.id}>
+                <div class="col-md-6" >
                   <div class="step">
                     <span class="number">Claim number:#000{claim.id}</span>
                     <h3>{claim.title}</h3>
@@ -126,10 +131,19 @@ function App() {
                     </div>
 
                     <div className='row'>
-                      <div className='col-8'> </div>
+                      <div className='col-2'> </div>
+                      <div className='col-6'> <br/>
+                       {claim.status == 'checked' ? (
+                          <button onClick={() => handleViewDownload(claim.id)} className='deletebtn'>click here to download</button>
+                        ) : (
+                              // <button onClick={() => handleApprove(claim.id)} className='approvebtn'>approve</button>
+                              <>
+                              </>
+                        )
+                        } </div>
                    
                       <div className='col-4'> <i><br/>
-                        <button className='deletebtn'>delete</button> </i> </div>
+                        <button className='deletebtn' onClick={() => handleView(claim.id)} key={claim.id}>delete</button> </i> </div>
                     </div>
                   </div>
                 </div>
@@ -138,6 +152,7 @@ function App() {
 
           </div>
         </div>
+      
 
       </section>
 

@@ -1,4 +1,4 @@
-import Menu from '../../components/admin';
+import Menu from '../../components/employee';
 import Hero from '../../components/samplehero';
 
 import React, { useEffect, useState } from 'react';
@@ -43,7 +43,7 @@ function App() {
   }, []);
 
   const handleView = (id) => {
-    navigate(`../admin_one/${id}`);
+    navigate(`../employee_one/${id}`);
   };
 
 

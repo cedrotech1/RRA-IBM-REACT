@@ -1,44 +1,47 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
+import { Offcanvas } from 'react-bootstrap';
 
 function App() {
+  const [showMenu, setShowMenu] = useState(false);
 
-  // useEffect(() => {
-  //   const fetchclaims = async () => {
-  //       const token = localStorage.getItem('token'); 
-  //   };
+  return (
+    <>
+      <header id="header" className="fixed-top d-flex align-items-center">
+        <div className="container d-flex justify-content-between align-items-center">
+          <div className="logo">
+            <h1><a href="/admin_Home">RRA-CLAIM</a></h1>
+            <a href="admin_Home"><img src="assets/img/logo.png" alt="" className="img-fluid" /></a>
+          </div>
+          <nav id="navbar" className="navbar">
+            <ul>
+              <li><a className="active" href="admin_Home">Home</a></li>
+              <li><a href="/admin_claim">Claims</a></li>
+              <li><a href="/admin_Employee">Add Employee</a></li>
+              <li><a href="/logout">Logout</a></li>
+            </ul>
+            <i className="bi bi-list mobile-nav-toggle" onClick={() => setShowMenu(!showMenu)}></i>
+          </nav>
+        </div>
+      </header>
 
-  //   fetchclaims();
-  // }, []);
-  // console.log(token)
-    return (
-      <>
-<header id="header" class="fixed-top d-flex align-items-center">
-<div class="container d-flex justify-content-between align-items-center">
+      <Offcanvas show={showMenu} onHide={() => setShowMenu(false)} placement="start">
+        <Offcanvas.Header closeButton>
+          <Offcanvas.Title><b style={{textAlign:'center'}}></b>
+          <a href="index.html"><img src="assets/img/logo.png" alt="" className="img-fluid" /></a>
+           </Offcanvas.Title>
+        </Offcanvas.Header>
+        <Offcanvas.Body>
+          
+          <ul style={{marginBottom:'1cm',listStyle:'none',textAlign:'center',fontFamily:'cursive',fontSize:'0.5cm',marginBottom:'1cm'}}>
+            <li><a className="active" href="admin_Home">Home</a></li>
+            <li><a href="/admin_claim">Claims</a></li>
+            <li><a href="/admin_Employee">Add Employee</a></li>
+            <li><a href="/logout">Logout</a></li>
+          </ul>
+        </Offcanvas.Body>
+      </Offcanvas>
+    </>
+  );
+}
 
-  <div class="logo">
-    <h1><a href="/admin_Home">RRA-CLAIM</a></h1>
-    {/* <!-- Uncomment below if you prefer to use an image logo --> */}
-    <a href="index.html"><img src="assets/img/logo.png" alt="" class="img-fluid"/></a>
-  </div>
-
-  <nav id="navbar" class="navbar">
-    <ul>
-      <li><a class="active " href="admin_Home">Home</a></li>
-      <li><a href="/admin_claim">claims</a></li>
-      <li><a href="/admin_Employee">add employee</a></li>
-      <li><a href="/logout">logout</a></li>
-   
-    </ul>
-    <i class="bi bi-list mobile-nav-toggle"></i>
-  </nav>
-
-</div>
-</header>
-  
-  
-      </>
-    );
-  }
-  
-  export default App;
-  
+export default App;

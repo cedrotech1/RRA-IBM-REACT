@@ -96,7 +96,7 @@ function App() {
                   <input type="text" class="form-control" name="title" id="subject" required onChange={handleChange}/>
                 </div>
                 <div class="col-md-12 form-group mt-3">
-                  <label for="name">Message</label>
+                  <label for="name">Descripe in details your claim</label>
                   <textarea class="form-control" name="description" required onChange={handleChange}></textarea>
                 </div> 
 

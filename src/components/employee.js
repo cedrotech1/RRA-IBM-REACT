@@ -1,8 +1,7 @@
 
 
 
-
-import React, { useState } from 'react';
+  import React, { useState } from 'react';
 import { Offcanvas } from 'react-bootstrap';
 
 function App() {
@@ -18,10 +17,9 @@ function App() {
           </div>
           <nav id="navbar" className="navbar">
             <ul>
-              <li><a class="active " href="/customer">Home</a></li>
-              <li><a href="/claim">claim</a></li>
-              <li><a href="/myclaim">my claims</a></li>
-              <li><a href="/logout">logout</a></li>
+            <li><a class="active " href="employee_Home">Home</a></li>
+      <li><a href="/employee_claim">claims</a></li>
+              <li><a href="/logout">Logout</a></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle" onClick={() => setShowMenu(!showMenu)}></i>
           </nav>
@@ -30,17 +28,17 @@ function App() {
 
       <Offcanvas show={showMenu} onHide={() => setShowMenu(false)} placement="start">
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title><b style={{ textAlign: 'center' }}></b>
-            <a href="index.html"><img src="assets/img/logo.png" alt="" className="img-fluid" /></a>
-          </Offcanvas.Title>
+          <Offcanvas.Title><b style={{textAlign:'center'}}></b>
+          <a href="employee_Home"><img src="assets/img/logo.png" alt="" className="img-fluid" /></a>
+           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
+          
+          <ul style={{marginBottom:'1cm',listStyle:'none',textAlign:'center',fontFamily:'cursive',fontSize:'0.5cm',marginBottom:'1cm'}}>
+            <li><a className="active" href="employee_Home">Home</a></li>
+            <li><a href="/employee_claim">Claims</a></li>
 
-          <ul style={{ marginBottom: '1cm', listStyle: 'none', textAlign: 'center', fontFamily: 'cursive', fontSize: '0.5cm', marginBottom: '1cm' }}>
-            <li><a class="active " href="/customer">Home</a></li>
-            <li><a href="/claim">claim</a></li>
-            <li><a href="/myclaim">my claims</a></li>
-            <li><a href="/logout">logout</a></li>
+            <li><a href="/logout">Logout</a></li>
           </ul>
         </Offcanvas.Body>
       </Offcanvas>
@@ -50,3 +48,4 @@ function App() {
 
 export default App;
 
+  

@@ -47,6 +47,9 @@ function App() {
         } else if (role === 'superadmin') {
           await navigate('../admin_Home');
         } 
+        else if (role === 'employee') {
+          await navigate('../employee_Home');
+        } 
       } else {
         const errorData = await response.json();
         toast.error(errorData.message);

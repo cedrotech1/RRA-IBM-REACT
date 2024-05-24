@@ -1,4 +1,4 @@
-import Menu from '../../components/admin';
+import Menu from '../../components/employee';
 import Footer from '../../components/footer';
 import Hero from '../../components/samplehero';
 
@@ -74,7 +74,7 @@ function App() {
         await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay time as needed
 
         // window.location.reload();
-        await navigate('../admin_claim');
+        await navigate('../employee_claim');
       } else {
         const errorData = await response.json();
         // toast.error(res.message);
@@ -85,7 +85,7 @@ function App() {
     }
   };
   const handleCheck = async (userId) => {
-    // navigate(`../one/${id}`);
+  
 
     try {
       const isConfirmed = window.confirm("Are you sure you want to check this claim?");
@@ -107,7 +107,7 @@ function App() {
         await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay time as needed
 
         // window.location.reload();
-        await navigate('../admin_claim');
+        await navigate('../employee_claim');
       } else {
         const errorData = await response.json();
         // toast.error(res.message);
@@ -141,7 +141,7 @@ function App() {
         await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay time as needed
 
         // window.location.reload();
-        await navigate('../admin_claim');
+        await navigate('../employee_claim');
       } else {
         const errorData = await response.json();
         console.error(`Failed to approve user with ID ${userId}:`, errorData.message);
@@ -175,7 +175,7 @@ function App() {
         await new Promise(resolve => setTimeout(resolve, 1000)); // Adjust the delay time as needed
 
         // window.location.reload();
-        await navigate('../admin_claim');
+        await navigate('../employee_claim');
       } else {
         const errorData = await response.json();
         console.error(`Failed to approve user with ID ${userId}:`, errorData.message);
