@@ -12,7 +12,7 @@ function App() {
       <header id="header" className="fixed-top d-flex align-items-center">
         <div className="container d-flex justify-content-between align-items-center">
           <div className="logo">
-            <h1><a href="/admin_Home">RRA-CLAIM</a></h1>
+            <h1><a href="/employee_Home">RRA-CLAIM</a></h1>
             <a href="admin_Home"><img src="assets/img/logo.png" alt="" className="img-fluid" /></a>
           </div>
           <nav id="navbar" className="navbar">

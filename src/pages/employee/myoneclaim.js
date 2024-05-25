@@ -8,6 +8,8 @@ import { useNavigate } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import PdfViewer from '../../components/viewer';
+
 
 function App() {
   const { id } = useParams();
@@ -15,6 +17,9 @@ function App() {
   const [claims, setclaims] = useState();
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('token');
+  const [pdfUrl1, setpdfUrl1] = useState('http://res.cloudinary.com/dzl8xve8s/image/upload/v1716618245/PDFs/kpcb7kvfwnf1llrdqhh6.pdf');
+  const pdfUrl = 'http://res.cloudinary.com/dzl8xve8s/image/upload/v1716618245/PDFs/kpcb7kvfwnf1llrdqhh6.pdf';
+
 
   useEffect(() => {
     const fetchclaims = async () => {
@@ -33,7 +38,8 @@ function App() {
           //   data = [data.data];
           // }
           setclaims([data.data]);
-          console.log([data.data])
+          setpdfUrl1(data.data.file)
+          // console.log([data.data])
         } else {
           console.error('Failed to fetch claims:', data.message);
         }
@@ -184,7 +190,7 @@ function App() {
       console.error('Error deleting user:', error);
     }
   };
-  // console.log(claims)
+  console.log(claims)
   return (
     <>
       <Menu />
@@ -207,7 +213,7 @@ function App() {
               claims.map((claim) => (
 
 
-                <div class="col-md-6" key={claim.id}>
+                <div class="col-md-4" key={claim.id}>
                   <div class="step">
                     <span class="number">Claim number:#000{claim.id}</span>
                     <h3>{claim.title}</h3>
@@ -271,6 +277,29 @@ function App() {
                 </div>
               ))
             )}
+             
+
+             {loading ? (
+  <LoadingSpinner />
+) : (
+  <>
+    {claims.map((claim) => (
+      <>
+      </>
+
+
+      // Your existing code for rendering claim details
+    ))}
+    
+    {pdfUrl1 && (
+      <div class="col-md-8">
+        <PdfViewer pdfUrl={pdfUrl1} />
+      </div>
+    )}
+  </>
+)}
+
+            
 
           </div>
         </div>

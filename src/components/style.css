@@ -948,7 +948,15 @@ section {
 
 
 
+#header {
+  height: 80px;
+  transition: all 0.5s;
+  z-index: 997;
+  transition: all 0.5s;
+/* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#2e48f2+38,7db9e8+100&0+0,1+58,0.6+100 */
+background: linear-gradient(to right, rgba(39, 70, 133, 0.8) 0%, rgba(61, 179, 197, 0.8) 100%), url(../../public/assets/img/hero-bg.jpg);/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 
+}
 
 
 .hero-section {
