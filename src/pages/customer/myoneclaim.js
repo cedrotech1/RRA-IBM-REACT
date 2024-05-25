@@ -145,7 +145,7 @@ function App() {
                       <div className="col-4"></div>
                     </div>
 
-                    {claim.status === 'checked' || claim.status === 'rib-approved' && (
+                    {claim.status === 'checked' && (
                            <form>
                            <input type="file" className='form-control' onChange={handleFileChange} /><br/>
                            <button type="button" className="statusbtn" onClick={() => handleFileUpload(claim.id)}>Upload</button>
