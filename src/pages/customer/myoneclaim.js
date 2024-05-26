@@ -144,6 +144,23 @@ function App() {
                           </>
                         )}
                         </i>
+                        {claim.status === 'pending' && (
+                          <>
+                          <p style={{backgroundColor:'whitesmoke',color:'gray',padding:'0.4cm',borderRadius:'0.3cm'}}>Your claim i in checking process ! you will notified if checked !</p><br/>
+                          </>
+                        )}
+
+                        {claim.status === 'checked' && (
+                          <>
+                          <p style={{backgroundColor:'whitesmoke',color:'gray',padding:'0.4cm',borderRadius:'0.3cm'}}>Your claim  checking successfull ! now download your claim and upload signed Claim by RIB !</p><br/>
+                          </>
+                        )}
+                          {claim.status === 'rejected' && (
+                          <>
+                          <p style={{backgroundColor:'lightred',color:'white',padding:'0.4cm',borderRadius:'0.3cm'}}>sorry, unfortunetry your claim has been rejected !!</p><br/>
+                          </>
+                        )}
+                        
                       </div>
                       
                     </div>
