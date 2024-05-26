@@ -9,7 +9,7 @@ const PdfViewer = ({ pdfUrl }) => {
 
     return (
         <div style={{ height: '750px' }}>
-            <Worker workerUrl="/pdf.worker.min.js">
+            <Worker workerUrl="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js">
                 <Viewer fileUrl={pdfUrl} plugins={[defaultLayoutPluginInstance]} />
             </Worker>
         </div>

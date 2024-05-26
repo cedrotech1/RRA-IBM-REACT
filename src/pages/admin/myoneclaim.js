@@ -17,8 +17,8 @@ function App() {
   const [claims, setclaims] = useState();
   const [loading, setLoading] = useState(true);
   const token = localStorage.getItem('token');
-  const [pdfUrl1, setpdfUrl1] = useState('http://res.cloudinary.com/dzl8xve8s/image/upload/v1716618245/PDFs/kpcb7kvfwnf1llrdqhh6.pdf');
-  const pdfUrl = 'http://res.cloudinary.com/dzl8xve8s/image/upload/v1716618245/PDFs/kpcb7kvfwnf1llrdqhh6.pdf';
+  const [pdfUrl1, setpdfUrl1] = useState('');
+
 
 
   useEffect(() => {
@@ -39,7 +39,8 @@ function App() {
           // }
           setclaims([data.data]);
           setpdfUrl1(data.data.file)
-          // console.log([data.data])
+          console.log(data.data.file); // Log URL to check
+       
         } else {
           console.error('Failed to fetch claims:', data.message);
         }
@@ -190,7 +191,9 @@ function App() {
       console.error('Error deleting user:', error);
     }
   };
-  console.log(claims)
+  // console.log(claims)
+
+  console.log(pdfUrl1);
   return (
     <>
       <Menu />
