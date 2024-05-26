@@ -42,7 +42,7 @@ function App() {
         </Offcanvas.Header>
         <Offcanvas.Body>
           
-          <ul style={{marginBottom:'1cm',listStyle:'none',textAlign:'center',fontFamily:'cursive',fontSize:'0.5cm',marginBottom:'1cm'}}>
+          <ul style={{marginBottom:'1cm',listStyle:'none',textAlign:'center',fontFamily:'sans-serif',fontSize:'0.5cm',marginBottom:'1cm'}}>
             <li><a className="active" href="admin_Home">Home</a></li>
             <li><a href="/admin_claim">Claims</a></li>
             <li><a href="/admin_Employee">Add Employee</a></li>
