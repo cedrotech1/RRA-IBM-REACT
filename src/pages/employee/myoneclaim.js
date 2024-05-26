@@ -233,45 +233,58 @@ function App() {
                     </div>
 
                     <div className='row'>
-                      <div className='col-4'>  <br />
-                      {claim.status == 'pending' ? (
-                          <button  onClick={() => handleCheck(claim.id)} className='approvebtn'>mark as checked</button>
+                      <br />
+                      {(() => {
+  if (claim.status === 'pending' || claim.status === 'checked' ) {
+    return (
+      <>
+      <div className='col-4'> 
+      <br /><button onClick={() => handleCheck(claim.id)} className='approvebtn'>
+            Check
+          </button>
+        </div>
 
-                        ) : (
-                          <button  onClick={() => handleunCheck(claim.id)} className='deletebtn'>mark as un checked</button>
-                        )
-                        }
-                      </div>
-                      <div className='col-4'>
-                        <br />
+           <div className='col-4'> 
+           <br /> <button onClick={() => handleunCheck(claim.id)} className='deletebtn'>
+            unheck
+          </button>
+        </div>
+        </>
+    );
+  }
+})()}
+                     
+                    
+
+
+                      {(() => {
+  if (claim.status === 'rib-approved'  || claim.status === 'approved'  || claim.status === 'rejected') {
+    return (
+      <>
+      <div className='col-4'> 
+      <br /><button onClick={() => handleApprove(claim.id)} className='approvebtn'>approve</button>
+        </div>
+
+           <div className='col-4'> 
+           <br /> <button onClick={() => handleReject(claim.id)} className='deletebtn'>reject</button>
+        </div>
+        </>
+    );
+  }
+})()}
 
 
 
-                        {claim.status == 'pending' ? (
-                          <button onClick={() => handleReject(claim.id)} className='deletebtn'>reject</button>
 
-                        ) : (
-                          <>
-                             <button onClick={() => handleReject(claim.id)} className='deletebtn'>reject</button>
-                         
-                            {/* <button  onClick={() => handleCheck(claim.id)} className='approvebtn'>mark as checked</button> */}
-                          </>
-                        
-                        )
-                        }
-                      </div>
 
-                      <div className='col-4'> <i><br />
 
-                        {claim.status == 'approved' ? (
-                          <button onClick={() => handleReject(claim.id)} className='deletebtn'>reject</button>
 
-                        ) : (
-                              <button onClick={() => handleApprove(claim.id)} className='approvebtn'>approve</button>
-                        )
-                        }
 
-                      </i> </div>
+
+
+
+
+                    
                     </div>
                   </div>
                 </div>

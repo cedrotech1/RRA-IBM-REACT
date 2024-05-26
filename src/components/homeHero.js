@@ -26,11 +26,11 @@ function Hero(props) {
           <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Lorem ipsum dolor sit amet, consectetur
             adipisicing elit.</p>
             <div class='row'>
-            <div class='col-md-3'>
-            <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="register" class="btn btn-outline-white">Get started</a></p>
+            <div class='col-md-4'>
+            <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="register"  class="btn btn-outline-white">Get started</a></p>
               </div> 
           
-              <div class='col-md-3'>
+              <div class='col-md-4'>
             <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="login" class="btn btn-outline-white">sign in</a></p>
               </div>
             </div>
@@ -38,7 +38,7 @@ function Hero(props) {
         </div>
         <div class="col-lg-1"></div>
         <div class="col-lg-4 iphone-wrap">
-          <img src="assets/img/RRA Logo.png" alt="Image" class="phone-1" data-aos="fade-right"/>
+          <img src="assets/img/RRA Logo.png" alt="Image" class="phone-1" data-aos="fade-right" style={{marginTop:'3cm'}}/>
           {/* <img src="assets/img/phone_2.png" alt="Image" class="phone-2" data-aos="fade-right" data-aos-delay="200"/> */}
         </div>
       </div>

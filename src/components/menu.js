@@ -1,12 +1,17 @@
-
-
-
-
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Offcanvas } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   return (
     <>
@@ -21,6 +26,7 @@ function App() {
               <li><a class="active " href="/customer">Home</a></li>
               <li><a href="/claim">claim</a></li>
               <li><a href="/myclaim">my claims</a></li>
+              <li><a href="/settings">settings</a></li>
               <li><a href="/logout">logout</a></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle" onClick={() => setShowMenu(!showMenu)}></i>
@@ -36,10 +42,11 @@ function App() {
         </Offcanvas.Header>
         <Offcanvas.Body>
 
-          <ul style={{ marginBottom: '1cm', listStyle: 'none', textAlign: 'center', fontFamily: 'cursive', fontSize: '0.5cm', marginBottom: '1cm' }}>
+          <ul style={{ marginBottom: '1cm', listStyle: 'none', textAlign: 'center', fontFamily:'sans-serif', fontSize: '0.5cm', marginBottom: '1cm' }}>
             <li><a class="active " href="/customer">Home</a></li>
             <li><a href="/claim">claim</a></li>
             <li><a href="/myclaim">my claims</a></li>
+            <li><a href="/settings">settings</a></li>
             <li><a href="/logout">logout</a></li>
           </ul>
         </Offcanvas.Body>

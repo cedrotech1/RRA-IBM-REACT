@@ -114,7 +114,7 @@ function App() {
 
 
                 <div class="col-md-12" ref={pdRef} >
-                  <div class="step">
+                  <div class="stepx" style={{padding:'2cm'}}>
                     <div class="col-lg-4 iphone-wrap">
                       <img src="../assets/img/RRA Logo.png" alt="Image" class="phone-1" data-aos="fade-right" style={{ height: '4cm', width: '5cm' }} />
                       {/* <img src="assets/img/phone_2.png" alt="Image" class="phone-2" data-aos="fade-right" data-aos-delay="200"/> */}

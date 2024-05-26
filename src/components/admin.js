@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Offcanvas } from 'react-bootstrap';
+import { useNavigate } from 'react-router-dom';
 
 function App() {
   const [showMenu, setShowMenu] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem('token');
+    if (!token) {
+      navigate('/login');
+    }
+  }, [navigate]);
 
   return (
     <>
@@ -17,6 +26,7 @@ function App() {
               <li><a className="active" href="admin_Home">Home</a></li>
               <li><a href="/admin_claim">Claims</a></li>
               <li><a href="/admin_Employee">Add Employee</a></li>
+              <li><a href="/settings">settings</a></li>
               <li><a href="/logout">Logout</a></li>
             </ul>
             <i className="bi bi-list mobile-nav-toggle" onClick={() => setShowMenu(!showMenu)}></i>
@@ -36,6 +46,7 @@ function App() {
             <li><a className="active" href="admin_Home">Home</a></li>
             <li><a href="/admin_claim">Claims</a></li>
             <li><a href="/admin_Employee">Add Employee</a></li>
+            <li><a href="/settings">settings</a></li>
             <li><a href="/logout">Logout</a></li>
           </ul>
         </Offcanvas.Body>

@@ -35,8 +35,15 @@ const App = () => {
       if (response.ok) {
         const res = await response.json();
         toast.success(res.message);
-        // Redirect to login page after successful signup
-        // Example: navigate('/login');
+        // Clear form data after successful submission
+        setFormData({
+          firstname: '',
+          lastname: '',
+          phone: '',
+          email: '',
+          role: 'employee',
+        });
+        // Optionally navigate to another page, e.g., navigate('/login');
       } else {
         const errorData = await response.json();
         toast.error(errorData.message);
@@ -68,26 +75,26 @@ const App = () => {
                     <div className="row">
                       <div className="col-md-6 form-group">
                         <label htmlFor="firstname">First Name</label>
-                        <input type="text" name="firstname" className="form-control" id="firstname" onChange={handleChange} required />
+                        <input type="text" name="firstname" className="form-control" id="firstname" onChange={handleChange} value={formData.firstname} required />
                       </div>
                       <div className="col-md-6 form-group">
                         <label htmlFor="lastname">Last Name</label>
-                        <input type="text" name="lastname" className="form-control" id="lastname" onChange={handleChange} required />
+                        <input type="text" name="lastname" className="form-control" id="lastname" onChange={handleChange} value={formData.lastname} required />
                       </div>
                       <div className="col-md-6 form-group">
                         <label htmlFor="phone">Telephone number</label>
-                        <input type="text" name="phone" className="form-control" id="phone" onChange={handleChange} required />
+                        <input type="text" name="phone" className="form-control" id="phone" onChange={handleChange} value={formData.phone} required />
                       </div>
                       <div className="col-md-6 form-group">
                         <label htmlFor="email">Email</label>
-                        <input type="email" name="email" className="form-control" id="email" onChange={handleChange} required />
+                        <input type="email" name="email" className="form-control" id="email" onChange={handleChange} value={formData.email} required />
                       </div>
                     </div>
                     <br />
                     <div className="row">
                       <div className="col-md-6 form-group">
                         <button type="submit" style={{ color: 'white' }} className={`btn btn-primary d-block w-100 ${loading ? 'loading' : ''}`} disabled={loading}>
-                          {loading ? 'loding....' : 'add employe'}
+                          {loading ? 'loading....' : 'add employee'}
                         </button>
                       </div>
                       <div className="col-md-6 form-group">

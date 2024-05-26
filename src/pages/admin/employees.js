@@ -100,7 +100,7 @@ function App() {
     </div>
 
     <div class="row">
-  
+    {  claims.length > 0 ? (
       <div class="col-md-12">
         <div class="step table-responsive">
           {/* <span class="number">03</span> */}
@@ -153,6 +153,11 @@ function App() {
           </table>
         </div>
       </div>
+       ):(
+        <center>
+        <img src="assets/img/data.jpg" alt="Image" class="phone-1" data-aos="fade-right" style={{height:'3cm',width:'3cm'}}/>
+      </center>
+      )}
     </div>
   </div>
 

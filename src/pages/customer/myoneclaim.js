@@ -136,13 +136,16 @@ function App() {
                     <p>{claim.description}</p>
                     <br />
                     <div className="row">
-                      <div className="col-4">
+                      <div className="col-12">
                         <i>
-                          {/* <button className="statusbtn">{claim.status}</button> */}
+                        {claim.status === 'approved' && (
+                          <>
+                          <p style={{backgroundColor:'lightgreen',color:'white',padding:'0.4cm',borderRadius:'0.3cm'}}>Congraturation you may now came to RRA-and check for further.........informaton</p><br/>
+                          </>
+                        )}
                         </i>
                       </div>
-                      <div className="col-4"></div>
-                      <div className="col-4"></div>
+                      
                     </div>
 
                     {claim.status === 'checked' && (
@@ -153,17 +156,15 @@ function App() {
                         )}
                    
                     <div className="row">
-                      <div className="col-4">
-                        <i>{claim.date}</i>
+                      <div className="col-12">
+                        time and date of claim <br/>
+                        <i>{claim.date} &nbsp; &nbsp;  <i>{claim.time}</i></i>
                       </div>
-                      <div className="col-4"></div>
-                      <div className="col-4">
-                        <i>{claim.time}</i>
-                      </div>
+                     
                     </div>
                     <div className="row">
                       <div className="col-2"></div>
-                      <div className="col-6">
+                      <div className="col-12">
                         <br />
                         {claim.status === 'checked' && (
                           <button onClick={() => handleViewDownload(claim.id)} className="deletebtn">
@@ -171,14 +172,22 @@ function App() {
                           </button>
                         )}
                       </div>
-                      <div className="col-4">
+                     
+
+                          {claim.status === 'pending' && (<>
+                        
+                             <div className="col-4">
                         <i>
                           <br />
                           <button className="deletebtn" onClick={() => handleDelete(claim.id)}>
-                            Delete
-                          </button>
+                          Delete
+                        </button>
                         </i>
                       </div>
+                        </>
+                        )}
+                          
+                       
                     </div>
                   </div>
                 </div>

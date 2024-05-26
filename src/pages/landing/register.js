@@ -66,8 +66,8 @@ const App = () => {
 
   return (
     <>
-      <section className="hero-section" style={{ height: '100vh' }}>
-        <div className="container" style={{ height: '100vh' }}>
+      <section className="hero-section">
+        <div className="container">
           <div className="row align-items-center">
             <div className="col-12 hero-text-image">
               <div className="row">
@@ -117,14 +117,14 @@ const App = () => {
                       <div className="col-md-6 form-group">
                         {/* <input type="submit" className="btn btn-primary d-block w-100" value="Register" /> */}
 
-                        <button type="submit" style={{color:'white'}} className={`btn btn-primary d-block w-100 ${loading ? 'loading' : ''}`} disabled={loading}>
-              {loading ? <LoadingSpinner /> : 'Create account'}
+                        <button type="submit" style={{color:'white',marginTop:'0.3cm'}} className={`btn btn-primary d-block w-100 ${loading ? 'loading' : ''}`} disabled={loading}>
+              {loading ? 'loading...': 'Create account'}
             </button>
 
                       </div>
                       <div className="col-md-6 form-group">
                         <a href="login">
-                          <input type="button" className="btn btn-info d-block w-100" value="Back to login" />
+                          <input type="button" style={{color:'white',marginTop:'0.3cm'}} className="btn btn-info d-block w-100" value="Back to login" />
                         </a>
                       </div>
                     </div>

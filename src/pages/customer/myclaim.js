@@ -30,12 +30,9 @@ function App() {
         } else {
           console.error('Failed to fetch claims:', data.message);
         }
-
-        // Set loading to false after fetching data
         setLoading(false);
       } catch (error) {
         console.error('Error fetching claims:', error);
-        // Set loading to false in case of an error
         setLoading(false);
       }
     };
@@ -46,71 +43,53 @@ function App() {
   const handleView = (id) => {
     navigate(`../one/${id}`);
   };
-  // console.log(claims)
+
   return (
     <>
       <Menu />
-      <Hero title='My claims' discription='my all claims and status for each' />
-
-
-
-
-
-      <section class="section">
-
-        <div class="container">
-          <div class="row justify-content-center text-center mb-5" data-aos="fade">
+      <Hero title='My claims' description='my all claims and status for each' />
+      <section className="section">
+        <div className="container">
+          <div className="row justify-content-center text-center mb-5" data-aos="fade">
           </div>
-
-          <div class="row">
-
-            {/* <div class="col-md-4">
-        <div class="step">
-          <span class="number">01</span>
-          <h3>Sign Up</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem, optio.</p>
-        </div>
-      </div> */}
-
-
+          <div className="row">
             {loading ? (
               <LoadingSpinner />
             ) : (
-              claims.map((claim) => (
-          
-
-                <div class="col-md-4" onClick={() => handleView(claim.id)} key={claim.id}>
-                  <div class="step">
-                    <span class="number">Claim number:#000{claim.id}</span>
-                    <h3>{claim.title}</h3>
-                    <p>{claim.description}</p>
-                    <br />
-                    <div className='row'>
-                      <div className='col-4'>  <i><button className='statusbtn'>{claim.status}</button> </i></div>
-                      <div className='col-4'> </div>
-                      <div className='col-4'> <i></i> </div>
-
-
-                    </div>
-                    <div className='row'>
-                      <div className='col-4'>  <i>{claim.date} </i></div>
-                      <div className='col-4'> </div>
-                      <div className='col-4'> <i>{claim.time} </i> </div>
-
-
+              claims.length > 0 ? (
+                claims.map((claim) => (
+                  <div className="col-md-4"  key={claim.id}>
+                    <br/>
+                    <div className="step">
+                      <span className="number">Claim number:#000{claim.id}</span>
+                      <h3>{claim.title}</h3>
+                      <p>{claim.description}</p>
+                      <br />
+                      <div className="row">
+                        <div className="col-4" > 
+                          <i><button className="statusbtn">{claim.status}</button></i>
+                        </div>
+                        <div className="col-4"></div>
+                        <div className="col-4">
+                          <i><button className="approvebtn" onClick={() => handleView(claim.id)}>view</button></i>
+                        </div>
+                      </div>
+                      <div className="row">
+                        <div className="col-4"><i>{claim.date}</i></div>
+                        <div className="col-4"></div>
+                        <div className="col-4"><i>{claim.time}</i></div>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))
+                ))
+              ) : (
+                <center>
+                <img src="assets/img/data.jpg" alt="Image" class="phone-1" data-aos="fade-right" style={{height:'3cm',width:'3cm'}}/>
+              </center>)
             )}
-
           </div>
         </div>
-
       </section>
-
-
-
       <Footer />
       <ToastContainer />
     </>

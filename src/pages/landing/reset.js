@@ -11,8 +11,7 @@ function App() {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
-    password: '',
-    
+   
   });
 
   const [loading, setLoading] = useState(false);
@@ -22,7 +21,7 @@ function App() {
 
     try {
       setLoading(true);
-      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/auth/login`, {
+      const response = await fetch(`${process.env.REACT_APP_BASE_URL}/api/v1/users/check`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,21 +34,12 @@ function App() {
       if (response.ok) {
         const res = await response.json();
         toast.success(res.message);
-
-        localStorage.setItem('token', res.token);
-        localStorage.setItem('user', JSON.stringify(res.user));
-
-        const role = res.user.role;
         await new Promise((resolve) => setTimeout(resolve, 2000));
 
-        if (role === 'customer') {
-          await navigate('../customer');
-        } else if (role === 'superadmin') {
-          await navigate('../admin_Home');
-        } 
-        else if (role === 'employee') {
-          await navigate('../employee_Home');
-        } 
+
+        await navigate(`../code/${formData.email}`);
+
+      
       } else {
         const errorData = await response.json();
         toast.error(errorData.message);
@@ -74,14 +64,12 @@ function App() {
 
       <section class="hero-section">
 
-
-
-        <div class="container">
-          <div class="row align-items-center" style={{marginTop:'-3cm'}}>
+      <div class="container">
+          <div class="row align-items-center" style={{marginTop:'-5cm'}}>
             <div class="col-12 hero-text-image">
               <div class="row" >
                 <div class="col-lg-7 text-center text-lg-start">
-                  <h1 data-aos="fade-right">SIGN IN HERE</h1>
+                  <h1 data-aos="fade-right">ENTER YOUR EMAIL</h1>
 
                   <form onSubmit={handleSubmit}  class="php-email-form">
 
@@ -91,33 +79,15 @@ function App() {
                         <input type="email" name="email" class="form-control" id="name" required  onChange={handleChange}/>
                       </div>
                     
-
-                      <div class="col-md-12 form-group" style={{marginTop:'0.5cm',marginBottom:'0.5cm'}}>
-                        <label for="name">Password</label>
-                        <input type="password" name="password" class="form-control" id="name" required onChange={handleChange} />
-                      </div>
-                      
-                    
-                     <a href="reset" style={{color:'white'}} >  forgot password</a>
-                     
-                    
-                    
-                      
-                      <div class="col-md-12 mb-3">
-                        <div class="loading">Loading</div>
-                        <div class="error-message"></div>
-                        <div class="sent-message">Your message has been sent. Thank you!</div>
-                      </div>
+               
                    
 
-                      <div class="col-md-6 form-group">
-                      <button type="submit" style={{color:'white',marginTop:'0.3cm'}}  className={`btn btn-primary d-block w-100 ${loading ? 'loading' : ''}`} disabled={loading}>
-              {loading ? 'loading....': 'login'}
+                      <div class="col-md-12 form-group">
+                      <br/> <button type="submit" style={{color:'white'}} className={`btn btn-primary d-block w-100 ${loading ? 'loading' : ''}`} disabled={loading}>
+              {loading ? 'loading....': 'get code'}
             </button>
                       </div>
-                      <div class="col-md-6 form-group">
-                      <a href="register" >  <input type="button" style={{color:'white',marginTop:'0.3cm'}}  class="btn btn-info d-block w-100" value="Back to register" /></a>
-                      </div>
+                     
                     </div>
 
                   </form>
@@ -125,7 +95,7 @@ function App() {
                 </div>
                 <div class="col-lg-1"></div>
                 <div class="col-lg-4 iphone-wrap p-10">
-                  <img src="assets/img/RRA Logo.png" alt="Image" class="phone-1" data-aos="fade-right" style={{ width: '13cm',marginTop:'5cm' }} />
+                  {/* <img src="assets/img/RRA Logo.png" alt="Image" class="phone-1" data-aos="fade-right" style={{ width: '13cm',marginTop:'5cm' }} /> */}
                   {/* <img src="assets/img/phone_2.png" alt="Image" class="phone-2" data-aos="fade-right" data-aos-delay="200"/> */}
                 </div>
               </div>
