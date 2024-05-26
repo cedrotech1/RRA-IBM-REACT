@@ -92,8 +92,14 @@ function App() {
               <form onSubmit={handleSubmit} className="php-email-form">
                 <div className="row">
                   <div className="col-md-12 form-group mt-3">
-                    <label htmlFor="name">title</label>
-                    <input type="text" className="form-control" name="title" id="subject" required onChange={handleChange} value={formData.title} />
+                    <label htmlFor="name">claim title</label>
+                    <select name="title" className="form-control" id="subject" required onChange={handleChange}>
+                    <option value=''>Choose your claim...............</option>
+                      <option value='EBM lost'>EBM lost</option>
+                      <option value='Technical issues'>Technical issues </option>
+                      <option value='requesting Deregistration of EBM '>requesting Deregistration of EBM   </option>
+                    </select>
+                    {/* <input type="text" className="form-control" name="title" id="subject" required onChange={handleChange} value={formData.title} /> */}
                   </div>
                   <div className="col-md-12 form-group mt-3">
                     <label htmlFor="name">Descripe in details your claim</label>
