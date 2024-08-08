@@ -115,96 +115,65 @@ function App() {
   };
   console.log(claims)
   return (
-   <>
-   <Menu/>
-   <Hero title='all claims' discription='my all claims and status for each'/>
+    <>
+      <Menu />
+      <Hero title='all claims' discription='my all claims and status for each' />
+      <section class="section">
+        <div class="container">
+          <div class="row justify-content-center text-center mb-5" data-aos="fade">
+          </div>
+          <div class="row">
+            {claims.length > 0 ? (
+              <div class="col-md-12">
+                <div class="step table-responsive">
+                  {/* <span class="number">03</span> */}
+                  {/* <h3>new claims</h3> */}
+                  <center> <p>
+                    <form>
+                      <input type='text' className='search' placeholder='SEARCH CLAIM' />
+                    </form>
+                  </p></center> <br />
+                  <table className='table table-responsive'>
+                    <tr className='htr'>
+                      <td>title</td><td>date/time</td><td>status</td><td></td>
+                    </tr>
+                    {loading ? (
+                      <LoadingSpinner />
+                    ) : (
+                      claims.map((claim) => (
+                        <tr key={claim.id}>
+                          <td>{claim.title}</td><td> {claim.date} &nbsp; {claim.time}</td><td>{claim.status}</td>
+                          <td>
+                            <div className='row'>
+                              <div className='col-md-6'><button className='btn1' onClick={() => handleView(claim.id)}>view</button></div>
+                              <div className='col-md-6'>
+                                {claim.status == 'approved' || !claim.status == 'approved' ? (
+                                  <button onClick={() => handleReject(claim.id)} className='btncancil'>reject</button>
 
-    
+                                ) : (
+                                  <button onClick={() => handleApprove(claim.id)} className='btnapproval'>approve</button>
+                                )
+                                }
 
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
 
-    <section class="section">
-
-  <div class="container">
-    <div class="row justify-content-center text-center mb-5" data-aos="fade">
-      {/* <div class="col-md-6 mb-5">
-        <img src="assets/img/undraw_svg_1.svg" alt="Image" class="img-fluid"/>
-      </div> */}
-    </div>
-
-    <div class="row">
-  
-  {  claims.length > 0 ? (
-      <div class="col-md-12">
-        <div class="step table-responsive">
-          {/* <span class="number">03</span> */}
-          {/* <h3>new claims</h3> */}
-         <center> <p>
-          <form>
-            <input type='text' className='search' placeholder='SEARCH CLAIM' />
-          </form>
-          </p></center> <br/>
-          <table className='table table-responsive'>
-            <tr className='htr'>
-              <td>title</td><td>date/time</td><td>status</td><td></td>
-            </tr>
-            {loading ? (
-              <LoadingSpinner />
+                      ))
+                    )}
+                  </table>
+                </div>
+              </div>
             ) : (
-              claims.map((claim) => (
-                <tr key={claim.id}>
-                <td>{claim.title}</td><td> {claim.date} &nbsp; {claim.time}</td><td>{claim.status}</td>
-                <td>
-                  <div className='row'>
-                  <div className='col-md-6'><button className='btn1' onClick={() => handleView(claim.id)}>view</button></div>
-                  <div className='col-md-6'>
-                  {claim.status == 'approved' ||  !claim.status == 'approved' ? (
-                          <button onClick={() => handleReject(claim.id)} className='btncancil'>reject</button>
-
-                        ) : (
-                              <button onClick={() => handleApprove(claim.id)} className='btnapproval'>approve</button>
-                        )
-                        }
-
-                  </div>
-
-
-
-                  </div>
-                  
-                  
-                
-              
-
-
-                        
-             
-                
-                
-                </td>
-              </tr>
-  
-              ))
+              <center>
+                <img src="assets/img/data.jpg" alt="Image" class="phone-1" data-aos="fade-right" style={{ height: '3cm', width: '3cm' }} />
+              </center>
             )}
-
-
-
-       
-          </table>
+          </div>
         </div>
-      </div>
-  ):(
-    <center>
-    <img src="assets/img/data.jpg" alt="Image" class="phone-1" data-aos="fade-right" style={{height:'3cm',width:'3cm'}}/>
-  </center>
-  )}
-    </div>
-  </div>
 
-</section>
-
-
-
-
+      </section>
     </>
   );
 }

@@ -52,7 +52,7 @@ function Footer() {
         <p class="copyright">&copy; Copyright RRA. All Rights Reserved</p>
         <div class="credits">
           All the links in the footer should remain intact.
-          Designed by <a href="tel:0784366616">john cp</a>
+          Designed by <a href="tel:0784366616">CedroTech</a>
         </div>
       </div>
     </div>

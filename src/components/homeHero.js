@@ -23,8 +23,7 @@ function Hero(props) {
       <div class="row">
         <div class="col-lg-7 text-center text-lg-start">
           <h1 data-aos="fade-right">{props.title}</h1>
-          <p class="mb-5" data-aos="fade-right" data-aos-delay="100">Lorem ipsum dolor sit amet, consectetur
-            adipisicing elit.</p>
+          <p class="mb-5" data-aos="fade-right" data-aos-delay="100">{props.discription}</p>
             <div class='row'>
             <div class='col-md-4'>
             <p data-aos="fade-right" data-aos-delay="200" data-aos-offset="-500"><a href="register"  class="btn btn-outline-white">Get started</a></p>
